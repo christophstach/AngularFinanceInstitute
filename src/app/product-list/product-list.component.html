@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ISIN</th>
+      <th>Aktie</th>
+      <th>Bank</th>
+      <th>Seitwärtsrendite</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.ids.isin }}</td>
+      <td>{{ product.derived.issuer.name}}</td>
+      <td>{{ product.derived.underlying.name }}</td>
+      <td>{{ product.figures.sideYieldPa | number:'1.3-3' }}</td>
+    </tr>
+  </tbody>
+</table>
