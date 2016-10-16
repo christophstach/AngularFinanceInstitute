@@ -11,9 +11,10 @@ export class ProductService {
     this.productsUrl = environment.productsUrl;
   }
 
+
   /**
    * connects to the remote api to fetch products
-   * @returns {any}
+   * @returns {Promise<Product[]>}
    */
   getProducts(): Promise<Product[]> {
     return this.http.get(this.productsUrl)
@@ -25,7 +26,7 @@ export class ProductService {
   /**
    * handles errors of http requests
    * @param error
-   * @returns {Promise<void>|Promise<T>}
+   * @returns {Promise}
    */
   private handleError (error: any) {
     return Promise.reject(error.message || error.json().error || 'Server error');
